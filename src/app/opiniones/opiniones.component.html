@@ -1,0 +1,62 @@
+<h2>Nos interesa tu opinión</h2>
+<mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="nombre">
+</mat-form-field>
+&nbsp;&nbsp;
+<mat-form-field>
+    <mat-label>Apellido</mat-label>
+    <input matInput [(ngModel)]="apellido">
+</mat-form-field>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<mat-form-field>
+    <mat-label>Pais</mat-label>
+    <mat-select [(ngModel)]="pais">
+        <mat-option value="México">México</mat-option>
+        <mat-option value="Estados Unidos">Estados Unidos</mat-option>
+        <mat-option value="Canadá">Canadá</mat-option>
+        <mat-option value="Perú">Perú</mat-option>
+        <mat-option value="Otro">Otro</mat-option>
+    </mat-select>
+</mat-form-field>
+<br>
+<mat-form-field>
+    <mat-label>Comentario</mat-label>
+    <textarea rows="3" cols="60" matInput [(ngModel)]="opinion"></textarea>
+</mat-form-field>
+<br>
+<label>Calificación:</label>
+<mat-radio-group [(ngModel)]="calificacion">
+    <mat-radio-button [value]="5">5</mat-radio-button>&nbsp;&nbsp;
+    <mat-radio-button [value]="4">4</mat-radio-button>&nbsp;&nbsp;
+    <mat-radio-button [value]="3">3</mat-radio-button>&nbsp;&nbsp;
+    <mat-radio-button [value]="2">2</mat-radio-button>&nbsp;&nbsp;
+    <mat-radio-button [value]="1">1</mat-radio-button>&nbsp;&nbsp;
+    <mat-radio-button [value]="0">0</mat-radio-button>
+</mat-radio-group>
+<br>
+<button mat-raised-button color="primary" (click)="guardar()">Guardar</button>
+<br><br>
+<h2>Lo que otros clientes opinan</h2>
+<mat-card *ngFor="let opinion of opiniones; 
+            let i = index;
+            let even = even;
+            let odd = odd;">
+    <mat-card-header>
+        <mat-card-title>
+            <img *ngIf="even"src="https://cdn-icons-png.flaticon.com/128/3069/3069186.png" height="30px">
+            <img *ngIf="odd"src="https://cdn-icons-png.flaticon.com/128/3501/3501589.png" height="30px">&nbsp;&nbsp;
+            <img *ngIf="opinion.calificacion == 5" src="../../assets/5estrellas.jpeg" height="20px">
+            <img *ngIf="opinion.calificacion == 4" src="../../assets/4estrellas.jpeg" height="20px">
+            <img *ngIf="opinion.calificacion == 3" src="../../assets/3estrellas.jpeg" height="20px">
+            <img *ngIf="opinion.calificacion == 2" src="../../assets/2estrellas.jpeg" height="20px">
+            <img *ngIf="opinion.calificacion == 1" src="../../assets/1estrellas.jpeg" height="20px">
+            <img *ngIf="opinion.calificacion == 0" src="../../assets/0estrellas.jpeg" height="20px"><br>
+            <mat-checkbox [(ngModel)]="opinion.visibilidad">Ver detalles</mat-checkbox>
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="opinion.visibilidad">{{opinion.nombre}}&nbsp;{{opinion.apellido}}<br>{{opinion.pais}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{opinion.opinion}}
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.tipo}}</h1>
+<div mat-dialog-content>
+    <p>{{data.caracteristicas}}</p>
+    <p>${{data.costo}} por ave</p>
+    <p class="texto_verde" *ngIf="data.disponibilidad">Disponible</p>
+    <p class="texto_rojo" *ngIf="!data.disponibilidad">No disponible</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="close()">Cerrar</button>
+</div>

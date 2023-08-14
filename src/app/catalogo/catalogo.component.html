@@ -1,0 +1,9 @@
+<div>
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let ave of aves">
+        <h3>{{ave.tipo}}</h3>
+        <img src="{{ave.imagen}}">
+        <button mat-flat-button (click)="verDetalles(ave)">Más Información</button>
+    </mat-grid-tile>
+</mat-grid-list>
+</div>
