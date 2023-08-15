@@ -77,11 +77,11 @@ export class CatalogoComponent {
   constructor(
     public dialogDetalles: MatDialog
   ){}
-  verDetalles(ave:ave){
+  verDetalles(ave1:ave){
+    console.log(ave1);
     this.dialogDetalles.open(DetallesComponent,{
-      data:ave
+      data:ave1
     })
-    .afterClosed()
-    .subscribe();
+    .afterClosed();
   }
 }

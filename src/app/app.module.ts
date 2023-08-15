@@ -13,6 +13,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 //Angular
 import { FormsModule } from '@angular/forms';
@@ -47,6 +48,7 @@ import { DetallesComponent } from './detalles/detalles.component';
     MatCardModule,
     MatCheckboxModule,
     MatGridListModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
